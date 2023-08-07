@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDSC</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Alkatra&family=Open+Sans:wght@300&family=Roboto+Condensed:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+    @media only screen and(max-width:1140px){
+        .nav-list{
+            flex-direction: column;
+        }
+        .navbar{
+            flex-direction: column;
+            transform: all 0.3s ease-out;
+        }
+        .rightNav{
+            text-align: center;
+        }
+        .box-main{
+            flex-direction: column-reverse;
+            max-width: 100%;
+        }
+        #search{
+            width: 100%;
+        }
+        .burger{
+            display: block;
+        }
+        .h-nav-resp{
+            height: 72px;
+        }
+        .v-class-resp{
+            opacity: 0;
+        }
+    }
+    
+    
+    body{
+        font-family: 'Alkatra', cursive;
+        font-family: 'Open Sans', sans-serif;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    html{
+        scroll-behavior: smooth;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .navbar{
+        display: flex;
+        top: 0;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        cursor: pointer;
+        /* height: 478px; */
+        
+    }
+    .nav-list{
+        width: 50%;
+        background-color:rgba(0, 0, 0,0.7);
+        display: flex;
+        align-items: center;
+    }
+    .logo{
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo img{
+        width: 33%;
+        border: 3px solid rgb(23, 22, 22);
+        border-radius: 50%;
+        
+    }
+    .nav-list li{
+        list-style: none;
+        padding: 26px 30px;
+    }
+    .nav-list li a{
+        padding: 6px;
+        text-decoration: none;
+        /* border: 2px solid black; */
+        /* background-color: rgb(243, 241, 240); */
+        color: rgb(230, 229, 237);
+        font-size: 20px;
+        /* border-radius: 5px; */
+    }
+    .nav-list li a:hover{
+        
+        
+        
+        color: bisque;
+    }
+    .rightNav{
+        background-color:rgba(0, 0, 0,0.7);
+        width: 50%;
+        text-align: right;
+        
+        height: 8vh;
+        padding: 0 23px;
+    }
+    #search{
+        padding: 5px;
+        font-size: 17px;
+        border: 2px solid grey;
+        border-radius: 9px;
+    }
+    .background{
+        background: rgba(0,0, 0, 0.7) url('../bg gdsc.jpg');
+        height: 144px;
+        background-size: cover;
+        background-blend-mode: darken;
+    }
+    .box-main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color:white;
+        max-width: 50%;
+        margin: auto;
+        height: 80%;
+    }
+    .firstSection{
+        height: 28vh;
+    }
+    .firstHalf{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .secondHalf{
+        width: 30%;
+    }
+    .secondHalf img{
+        width: 70%;
+        border: 4px solid black;
+        border-radius: 150px;
+        display: block;
+        margin: auto;
+    }
+    .text-big{
+        font-size: 41px;
+    }
+    .text-small{
+        font-size: 18px;
+    }
+    .btn{
+        padding: 8px 20px;
+        margin: 7px 3px;
+        border: 2px solid white;
+        background: none;
+        border-radius: 9px;
+        color: rgb(247, 246, 245);
+        cursor: pointer;
+    }
+    .btn-sm{
+        padding: 6px 10px;
+        vertical-align: middle;
+        
+    }
+    .sectionTag{
+        padding: 16px 0;
+    }
+    .section{
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        max-width: 80%;
+        margin: auto;
+        font-family: 'Alkatra', cursive;
+        font-family: 'Open Sans', sans-serif;
+        font-family: 'Roboto Condensed', sans-serif;
+        background-color: rgb(228, 228, 195);
+    }
+    .section-left{
+        flex-direction: row-reverse;
+    }
+    .paras{
+        padding: 0px 65px;
+    }
+    .contact{
+        background-color: rgb(236, 234, 232);
+        height: 15vh;
+    }
+    .text-center{
+        text-align: center;
+    }
+    .form{
+        max-width: 344px;
+        margin: auto;
+    }
+    .form input{
+        margin: 30px 0;
+        width: 100%;
+        font-size: 19px;
+        border: 2px solid grey;
+        border-radius: 6px;
+    }
+    .text-footer{
+        text-align: center;
+        padding: 30px 0;
+        display: flex;
+        justify-content: center;
+        background-color:rgba(0, 0, 0,0.7);
+        color: white;
+    }
+    .burger{
+        display: none;
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top:15px;
+    }
+    .line{
+        width: 33px;
+        background-color: white;
+        height: 4px;
+        margin: 5px 3px;
+    }
+    .afg{
+        width: 500px;
+        height: 300px;
+    }
+    </style>
+
+<body>
+    <nav class="navbar h-nav-resp">
+        <ul class="nav-list v-class-resp">
+            <div class="logo"><img src="logo .jpg" alt="logo"></div>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="https://tr.ee/hOQ5j6x4iE" target="_blank">Follow Us</a></li>
+            
+            
+        </ul>
+        <div class="rightNav v-class-resp">
+            <input type="text" name="search" id="search">
+            <button class="btn btn-sm">search</button>
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+    <section class="background firstSection">
+        <div class="box-main">
+            <div class="firstHalf">
+                <p class="text-big">Welcome to Google Developement Student Club of PRMIT&R,Badnera</p>
+                <p class="text-small">Advance your skills, career, and network.By joining GDSC PRMIT&R , students grow their knowledge in a
+                    peer-to-peer learning environment and build solutions for
+                    local businesses and their community.</p>
+                <div class="button">
+                    
+                    
+                </div>
+            </div>
+            <div class="secondHalf">
+                <img src="logo .jpg" alt="logo">
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="paras">
+            <p class="sectionTag text-big">What is GDSC?</p>
+            <p class="sectionSubTag text-small" style="font-size: 20px;">For the last many years, India has been the birthplace of some of the finest tech talent in the world. In the last 5 years, digitisation in India has grown dramatically, a phenomenon that accelerated further as the pandemic forced people into homes and onto the internet.
+
+                As an industry, and indeed, the country, we have a greater need than ever before for a pipeline of agile, brilliant young minds to help write the next chapter of India’s digitisation journey.
+                
+                The Google Developer Student Clubs (GDSC) program aims to empower student developers in universities to impact their student communities through technology. The program helps students bridge the gap between theory and practice in understanding the intersections between social groups, technology and user behaviour.
+                
+                Today, we are pleased to announce that applications for GDSC leads for the upcoming 2022-2023 academic year are now open. </p>
+        </div>
+        <div class="imgof">
+            <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Screen_Shot_2022-03-29_at_12.18..width-1000.format-webp.webp" alt="image">
+        </div>
+    </section>
+        <section class="section">
+        <div class="paras">
+            <p class="sectionTag text-big">Referrals, Graduation, and Post-GDSC Opportunities</p>
+            <p class="sectionSubTag text-small" style="font-size: 25px;">The current leads are given referral codes that can be shared with aspiring students who wish to apply for leading a GDSC at their university before the applications for selecting new leads are opened. These codes are provided to the current leads a week prior to the public application release and can be shared with students from any institute, regardless of their qualifications.
+
+                Keep in mind that having a referral doesn’t ensure that you will be selected or shortlisted for an interview, but it does offer some extra consideration to your application in the large pile of submissions that are made every year. </p>
+        </div>
+        
+    </section>
+    <section class="section">
+    
+        <img class="afg" src="https://1.bp.blogspot.com/-b6bxqJmHSBQ/YCF7iAb1e8I/AAAAAAAAQD4/bjVGymoEwg4HKkjQI04cj9LyYnHS4LhdQCLcBGAsYHQ/s0/new-curriculum-for-android-educators-social-v4.png" alt="loading">
+    
+    </section>
+    <section class="section section-left">
+        <div class="paras">
+            <p class="sectionTag text-big">Craft that Perfect Application</p>
+            <p class="sectionSubTag text-small" style="font-size: 25px;">Google accepts applications from graduate and under-graduate students via the Advocu platform. Applications for the Indian region are usually open in the final week of March and typically lasts over the next two to three weeks.
+
+                The applications are evaluated on a rolling basis, so it’s advisable to apply as soon as possible. This can greatly enhance your chances of being selected for an interview. In my case, I applied within the first three days of the start of the application. You can also express your interest by filling out this form.Usually, as part of the application, you’ll be required to submit your personal details, answers to a few essay questions, and a 90-sec video. While applying, make sure that you strictly follow the guidelines regarding the nature and length of your answers. Your resume isn’t required when applying for GDSC
+                
+            </p>
+        </div>
+        <div class="paras">
+            <p class="sectionTag text-big">Interview with a Google Representative</p>
+            <p class="sectionSubTag text-small" style="font-size: 25px;">Interviews, especially online ones, can be stressful. I was filled with anxiety on the morning of my interview as I had no prior knowledge of what to expect. My college never had a GDSC club and it was my first-ever interview
+
+                To calm my nerves, I logged into the meeting somewhat 10 mins before the start of the interview. At exactly 12 PM, my interviewer joined the meet call but had to delay it by half an hour as his laptop needed charging. We then connected at around 12:20 PM, and the interview began with a friendly intro.
+                
+            </p>
+        </div>
+        
+        
+    </section>
+    <section class="section">
+        <div class="paras">
+            <p class="sectionTag text-big">Befefits of being member</p>
+            <p class="sectionSubTag text-small" style="font-size: 25px;">
+                <ul style="font-size: 25px;">
+                    <li>Apply new learnings to build great solutions for local problems.</li>
+                    <li>Advance your skills, career, and network.</li>
+                    <li>Give back to your community by helping others learn.</li>
+                    <li>Connect, learn, and grow with Google Developer Student Clubs.</li>
+                    <li>Develop new skills, such as how to create initiatives, manage projects, and collaborate with a wide range of individuals.</li>
+                    <li>Access to Google Developer resources and opportunities for free.</li>
+                    <li>Lead a community under direct mentorship from Google.</li>
+                </ul>
+            </p>
+        </div>
+        <div class="paras">
+            <p class="sectionTag text-big"></p>
+            <p class="sectionSubTag text-small"></p>
+        </div>
+        
+        
+    </section>
+    <hr>
+    <section class="contact" id="contact">
+        <h2 class="text-center">Contact</h2>
+        <div class="form">
+            <H2 style="font-size: 20px;"> Mr.Anurag v Deshmukh(GDSC PRMIT&R Lead)</H2>
+            <div style="font-size: 25px;">G-mail:gdscprmitr@gmail.com</div>
+            <div style="font-size: 25px;">Phone:9158132751</div>
+        </div>
+    </section>
+    <footer>
+        <p class="text-footer">
+            copyright &copy; 2023 www.gdscprmitr.com -All right reserved
+        </p>
+    </footer>
+    <script src="resp.js"></script>
+</body>
+</html>
